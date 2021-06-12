@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  frameworkconsole:
+    image: ${DOCKER_REGISTRY-}framework-console
+    build:
+      context: .\ConsoleApp1
+      dockerfile: Dockerfile
+    links:
+      - "frameworkapi"
+
+  frameworkapi:
+    image: ${DOCKER_REGISTRY-}framewok-api
+    build:
+      context: .\WebApiFramework
+      dockerfile: Dockerfile
